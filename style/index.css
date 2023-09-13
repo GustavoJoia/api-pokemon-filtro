@@ -117,9 +117,14 @@ btn{
   width: 40%;
 }
 
-img{
+.aparencia img{
   width: 300px;
   height: 300px;
+}
+
+.card_semelhante img{
+  width: 150px;
+  height: 150px;
 }
 
 .titulo-pagina{

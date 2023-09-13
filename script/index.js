@@ -3,6 +3,9 @@ import render from "./table.js"
 import alike, {alikeGen} from "./alike.js"
 import dinamic, {dinamicGen} from "./dinamicRender.js"
 
+let container1 = document.querySelector('#semelhante_tipo')
+let container2 = document.querySelector('#semelhante_geracao')
+
 let btn = document.querySelector('#search-btn')
 
 btn.addEventListener('click', buscar)
@@ -34,6 +37,9 @@ function buscar(){
 
 function search_alike(tipos, dexId){
 
+    container1.innerHTML = ''
+    container2.innerHTML = ''
+
     for (let i = 1; i <= 905 ; i++) {
         
         let url = `https://pokeapi.co/api/v2/pokemon/${i}/`
@@ -44,7 +50,9 @@ function search_alike(tipos, dexId){
         .then(function(response){
             
             let tipos_comp = response.types
+
             if(alike(tipos, tipos_comp) == true ){
+                
                 dinamic(response)
             } else if(alikeGen(dexId, response.id) == true){
                 dinamicGen(response)
